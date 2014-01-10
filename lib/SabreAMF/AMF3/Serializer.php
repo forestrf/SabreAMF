@@ -43,6 +43,7 @@
                 }
                 if (!$type && is_float($data))   $type = SabreAMF_AMF3_Const::DT_NUMBER;
                 if (!$type && is_int($data))     $type = SabreAMF_AMF3_Const::DT_INTEGER;
+                if (!$type && is_numeric($data)) $type = SabreAMF_AMF3_Const::DT_NUMBER; //This is incorrect because a string with only numbers will be saved as a number, but 32-bit machines (and 64-bit) can't make a bigger int
                 if (!$type && is_string($data))  $type = SabreAMF_AMF3_Const::DT_STRING;
                 if (!$type && is_array($data))   $type = SabreAMF_AMF3_Const::DT_ARRAY; 
                 if (!$type && is_object($data)) {
